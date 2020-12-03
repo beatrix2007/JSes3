@@ -4,19 +4,44 @@
     </head>
     <body>
         <h1>ESERCIZIO 3</h1>
-        <p>Creazione di una classe in javascript snza usare il prototipo class: 
-            classe base che espone le funzioni di somma, sottrazione, moltiplicazione e divisione salvando i risultati all'interno della classe.</p>
+        <p>Creazione di una semplice calcolatrice che svolga le funzioni di somma, divisione, sottrazione e moltiplicazione. </p>
         <div>Inserisci il primo numero</div><br>
         <input type="number" id="number1"></input><br><br>
         <div>Inserisci il secondo numero</div><br>
         <input type="number" id="number2"></input><br><br>
         <h3>Cosa vuoi fare?</h3>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script>
+            
             $("body").append(
                 $("<button id=\"btn1\">SOMMA</button>").on("click", function(){
-                    $("body").append()
+                $("body").append("<br>");
+                $("#result").html("");
+                $("#result").html(parseInt($("#number1").val())+parseInt($("#number2").val()));
                 })
             );
+            $("body").append(
+                $("<button id=\"btn2\">SOTTRAZIONE</button>").on("click", function(){
+                $("body").append("<br>");
+                $("#result").html("");
+                $("#result").html(parseInt($("#number1").val())-parseInt($("#number2").val()));
+                })
+            );
+            $("body").append(
+                $("<button id=\"btn3\">MOLTIPLICAZIONE</button>").on("click", function(){
+                $("body").append("<br>");
+                $("#result").html("");
+                $("#result").html(parseInt($("#number1").val())*parseInt($("#number2").val()));
+                })
+            );
+            $("body").append(
+                $("<button id=\"btn4\">DIVISIONE</button>").on("click", function(){
+                $("body").append("<br>");
+                $("#result").html("");
+                $("#result").html(parseInt($("#number1").val())/parseInt($("#number2").val()));
+                })
+            );
+            $("body").append("<br><br><div id=\"result\"></div>")
         </script>
     </body>
 </html>
