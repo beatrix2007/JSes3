@@ -74,7 +74,7 @@
                 var string = "<tr><td>"+n1+"</td><td>"+n2+"</td><td>"+risultato+"</td></tr>";
                 var line= $(string);
                 localStorage.setItem("operation", string);
-                //var last_operation = localStorage.getItem("operation");
+                var last_operation = localStorage.getItem("operation");
                 $("tbody").append(line);
             }
         </script>
