@@ -33,9 +33,17 @@
         </table>    
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script>
-            if(typeof last_operation === "undefined" || last_operation === null){
-                last_operation= localStorage.getItem("operation");
-                $("tbody").append(last_operation);
+            function popola(item){
+                $("#tbody").append(item);
+            }
+            if(typeof operations_array === "undefined"){
+                var operations_array= localStorage.getItem("array");
+                if(operations_array !== null)
+                console.log("Stampa elementi")
+                operations_array.forEach(function(item){
+                    console.log(item);
+                })
+                operations_array.forEach(popola);
             }
         </script>
         <script>
@@ -73,8 +81,19 @@
                 $("#result").html(risultato);
                 var string = "<tr><td>"+n1+"</td><td>"+n2+"</td><td>"+risultato+"</td></tr>";
                 var line= $(string);
-                localStorage.setItem("operation", string);
-                var last_operation = localStorage.getItem("operation");
+
+                var operations_array = localStorage.getItem("array");
+                if(operations_array===null){
+                    operations_array = [];
+                }
+                operations_array.push(string);
+                //operations_array = ["tizio", "caio", "sempronio"];
+                //operations_array[1];
+                //operations_array[3] = "pippo";
+                //operations_array.push("pluto"); //inserire elemento in array senza specificare posizione
+                //operations_array.pop(2); //leggere l'elemento di un array in una determinata posizione. E' molto poco usato
+                localStorage.setItem("array", operations_array);
+                var operations_array = localStorage.getItem("array");
                 $("tbody").append(line);
             }
         </script>
